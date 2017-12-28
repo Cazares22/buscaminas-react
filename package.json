@@ -1,0 +1,22 @@
+{
+  "name": "buscaminas-react",
+  "version": "0.0.1",
+  "description": "Clásico juego Buscaminas hecho en React",
+  "main": "index.js",
+  "author": "Mariano Strugo <mariano.strugo@gmail.com>",
+  "license": "MIT",
+  "repository": "github:mstrugo/buscaminas-react",
+  "engines": {
+    "node": ">=6.9.2",
+    "npm": "^5"
+  },
+  "scripts": {
+  },
+  "dependencies": {
+    "react": "^15.6.2"
+  },
+  "devDependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0"
+  }
+}
