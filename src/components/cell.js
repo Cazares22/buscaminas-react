@@ -45,7 +45,7 @@ export default class Cell extends Component {
 
     return (
       <td className={cellClasses} onClick={this.revealCell} onContextMenu={this.setDecorator}>
-        <div className='game-cell__content'></div>
+        <div className='game-cell__content'>{this.state.near}</div>
       </td>
     );
   }

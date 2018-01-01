@@ -16,6 +16,14 @@
   background: white;
 }
 
+.game-cell__content {
+  visibility: hidden;
+}
+
+.game-cell__open .game-cell__content {
+  visibility: visible;
+}
+
 .game-cell__flag {
   background: green;
 }
