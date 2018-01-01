@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+const config = require('./config.js');
+import './game.css';
 
-class App extends Component {
+
+class Game extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mines : config.level1.mines,
+      rows : config.level1.rows,
+      cols : config.level1.cols,
+      time : 0,
+    };
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+      <section className="game">
+        <header className="game-header">
+          <h1 className="game-title">Desafío Buscaminas</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <main>
+          <Table
+            tableRows={this.state.rows}
+            tableCols={this.state.cols}
+            minesCount={this.state.mines}
+          />
+        </main>
+      </section>
     );
   }
 }
 
-export default App;
+
+Game.propTypes = {};
+
+Game.defaultProps = {};
+
+
+module.exports = Game;
