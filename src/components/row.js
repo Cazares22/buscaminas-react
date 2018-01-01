@@ -8,9 +8,15 @@ export default class Row extends Component {
   }
 
   render(){
+    const Cells = this.props.cells.map((cell, index) => {
+      return(
+        <Cell cell={cell} key={index} />
+      );
+    });
+
     return (
       <tr className="game-row">
-        <Cell />
+        {Cells}
       </tr>
     );
   }
