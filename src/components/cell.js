@@ -1,20 +1,53 @@
 import React, { Component } from 'react';
+const classNames = require('classnames');
+
 
 export default class Cell extends Component {
   constructor(props) {
       super(props);
+      this.revealCell = this.revealCell.bind(this);
+      this.setDecorator = this.setDecorator.bind(this);
       this.state = {
         near: this.props.cell.near,
-        withMine: this.props.cell.withMine,
-        withFlag: this.props.cell.withFlag,
         opened: this.props.cell.opened,
+        withMine: this.props.cell.withMine,
+        withDecorator: this.props.cell.withDecorator,
       };
   }
 
+  revealCell(){
+    if (!this.state.opened) {
+      this.setState({ opened: true });
+    }
+    if (this.state.withDecorator > 0) {
+      this.setState({ withDecorator: 0 });
+    }
+    return;
+  }
+
+  setDecorator(event){
+    event.preventDefault();
+    let val = 0;
+    switch (this.state.withDecorator) {
+      case 0: val = 1; break;
+      case 1: val = 2; break;
+      default: val = 0; break;
+    }
+    this.setState({ withDecorator: val });
+    return;
+  }
+
   render() {
+    const cellClasses = classNames('game-cell, game-cell__hide', {
+      'game-cell__open': this.state.opened,
+      'game-cell__mine': this.state.opened && this.state.withMine,
+      'game-cell__flag': this.state.withDecorator === 1,
+      'game-cell__quest': this.state.withDecorator === 2,
+    });
+
     return (
-      <td className="game-cell">
-        <div className="game-cell__hide">{`${this.state.withMine}`}</div>
+      <td className={cellClasses} onClick={this.revealCell} onContextMenu={this.setDecorator}>
+        <div className='game-cell__content'></div>
       </td>
     );
   }

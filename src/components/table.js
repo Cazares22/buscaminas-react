@@ -18,7 +18,7 @@ export default class Table extends Component {
           near : 0,
           opened : false,
           withMine : false,
-          withFlag : false
+          withDecorator : 0,
         });
       }
     }

@@ -3,13 +3,27 @@
 }
 
 .game-table {
-  background: gray;
+  width: 550px;
+  background: #f1efef;
+  margin: 0 auto;
 }
 
 .game-row {
-  background: blue;
+  height: 60px;
 }
 
-.game-cell {
+.game-cell__open {
+  background: white;
+}
+
+.game-cell__flag {
   background: green;
+}
+
+.game-cell__quest {
+  background: yellow;
+}
+
+.game-cell__mine {
+  background: black;
 }
