@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Row from './row.js';
 
-
-class Table extends Component {
+export default class Table extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -23,6 +22,3 @@ class Table extends Component {
 Table.propTypes = {};
 
 Table.defaultProps = {};
-
-
-module.exports = Table;

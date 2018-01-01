@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-const config = require('./config.js');
+import Table from './components/table.js';
 import './game.css';
+const config = require('./config.js');
 
 
-class Game extends Component {
+
+export default class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,6 +38,3 @@ class Game extends Component {
 Game.propTypes = {};
 
 Game.defaultProps = {};
-
-
-module.exports = Game;
