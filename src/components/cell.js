@@ -27,13 +27,11 @@ export default class Cell extends Component {
 
   setDecorator(event){
     event.preventDefault();
-    let val = 0;
-    switch (this.state.withDecorator) {
-      case 0: val = 1; break;
-      case 1: val = 2; break;
-      default: val = 0; break;
+    if (!this.state.opened) {
+      let val = 0;
+      this.state.withDecorator === 2 ? val = 0 : val = this.state.withDecorator + 1
+      this.setState({ withDecorator: val });
     }
-    this.setState({ withDecorator: val });
     return;
   }
 
