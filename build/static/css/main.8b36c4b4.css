@@ -1,0 +1,2 @@
+body{margin:0;padding:0;font-family:sans-serif}.game{text-align:center}.game-result{display:none}.game-result__show{display:block}.game-result__lost{color:red}.game-result__win{color:green}.game-table{width:550px;background:#f1efef;margin:0 auto}.game-row{height:60px}.game-cell__open{background:#fff}.game-cell__content{visibility:hidden}.game-cell__open .game-cell__content{visibility:visible}.game-cell__flag{background:green}.game-cell__quest{background:#ff0}.game-cell__mine{background:#000}
+/*# sourceMappingURL=main.8b36c4b4.css.map*/
