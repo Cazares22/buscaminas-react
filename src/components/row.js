@@ -10,7 +10,15 @@ export default class Row extends Component {
   render(){
     const Cells = this.props.cells.map((cell, index) => {
       return(
-        <Cell cell={cell} key={index} maxRows={this.props.maxRows} maxCols={this.props.maxCols} table={this.props.table} />
+        <Cell
+          cell={cell}
+          key={index}
+          maxRows={this.props.maxRows}
+          maxCols={this.props.maxCols}
+          totalMines={this.props.totalMines}
+          table={this.props.table}
+          endGame={this.props.endGame}
+        />
       );
     });
 

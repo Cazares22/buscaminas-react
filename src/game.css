@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+.game-result {
+  display: none;
+}
+
+.game-result__show {
+  display: block;
+}
+
+.game-result__lost {
+  color: red;
+}
+
+.game-result__win {
+  color: green;
+}
+
 .game-table {
   width: 550px;
   background: #f1efef;

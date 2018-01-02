@@ -44,13 +44,21 @@ export default class Table extends Component {
   }
 
   render() {
-    const {tableRows, tableCols, minesCount} = this.props;
+    const {tableRows, tableCols, totalMines} = this.props;
 
-    const generatedTable = this.generateTable(tableRows, tableCols, minesCount);
+    const generatedTable = this.generateTable(tableRows, tableCols, totalMines);
 
     const Rows = generatedTable.map((row, index) => {
       return(
-        <Row cells={row} key={index} maxRows={tableRows} maxCols={tableCols} table={generatedTable} />
+        <Row
+          cells={row}
+          key={index}
+          maxRows={tableRows}
+          maxCols={tableCols}
+          totalMines={this.props.totalMines}
+          table={generatedTable}
+          endGame={this.props.endGame}
+        />
       );
     });
 

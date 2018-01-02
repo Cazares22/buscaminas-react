@@ -12,19 +12,30 @@ export default class Cell extends Component {
         opened: this.props.cell.opened,
         withMine: this.props.cell.withMine,
         withDecorator: this.props.cell.withDecorator,
+        cellsOpened: 0,
+        totalCellsWithoutMines: this.props.maxRows * this.props.maxCols - this.props.totalMines,
       };
   }
 
-  revealCell(){
+  revealCell(event){
     if (!this.state.opened) {
-      this.setState({ opened: true });
+      this.setState({
+        opened: true,
+        cellsOpened: this.state.cellsOpened + 1,
+      });
 
       if (this.state.withMine) {
-        console.log('game-over');
+        this.props.endGame('perdido');
+        return;
+      }
+
+      if (this.state.cellsOpened === this.state.totalCellsWithoutMines) {
+        this.props.endGame('ganado');
         return;
       }
 
       this.getNearMines();
+
       if (this.state.withDecorator > 0) {
         this.setState({ withDecorator: 0 });
       }
@@ -65,7 +76,7 @@ export default class Cell extends Component {
   render() {
     const cellClasses = classNames('game-cell, game-cell__hide', {
       'game-cell__open': this.state.opened,
-      'game-cell__mine': this.state.opened && this.state.withMine,
+      'game-cell__mine': this.state.withMine,
       'game-cell__flag': this.state.withDecorator === 1,
       'game-cell__quest': this.state.withDecorator === 2,
     });
