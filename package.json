@@ -6,7 +6,7 @@
   "author": "Mariano Strugo <mariano.strugo@gmail.com>",
   "license": "MIT",
   "repository": "github:mstrugo/buscaminas-react",
-  "homepage" : "http://mstrugo.github.io/buscaminas-react",
+  "homepage" : "http://mstrugo.github.io/buscaminas-react/build",
   "engines": {
     "node": ">=6.9.2",
     "npm": "^5"
