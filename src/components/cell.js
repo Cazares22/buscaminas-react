@@ -76,7 +76,7 @@ export default class Cell extends Component {
   render() {
     const cellClasses = classNames('game-cell, game-cell__hide', {
       'game-cell__open': this.state.opened,
-      'game-cell__mine': this.state.withMine,
+      'game-cell__mine': this.state.opened && this.state.withMine,
       'game-cell__flag': this.state.withDecorator === 1,
       'game-cell__quest': this.state.withDecorator === 2,
     });
