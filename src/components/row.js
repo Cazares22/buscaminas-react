@@ -10,7 +10,7 @@ export default class Row extends Component {
   render(){
     const Cells = this.props.cells.map((cell, index) => {
       return(
-        <Cell cell={cell} key={index} />
+        <Cell cell={cell} key={index} maxRows={this.props.maxRows} maxCols={this.props.maxCols} table={this.props.table} />
       );
     });
 

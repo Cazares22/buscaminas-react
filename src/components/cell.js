@@ -18,9 +18,16 @@ export default class Cell extends Component {
   revealCell(){
     if (!this.state.opened) {
       this.setState({ opened: true });
-    }
-    if (this.state.withDecorator > 0) {
-      this.setState({ withDecorator: 0 });
+
+      if (this.state.withMine) {
+        console.log('game-over');
+        return;
+      }
+
+      this.getNearMines();
+      if (this.state.withDecorator > 0) {
+        this.setState({ withDecorator: 0 });
+      }
     }
     return;
   }
@@ -33,6 +40,26 @@ export default class Cell extends Component {
       this.setState({ withDecorator: val });
     }
     return;
+  }
+
+  getNearMines() {
+    const cell = this.props.cell;
+    const totalRows = this.props.maxRows;
+    const totalCols = this.props.maxCols;
+    const table = this.props.table;
+    let nearMines = 0;
+
+    for(let row = -1; row <= 1; row++){
+      for(let col = -1; col <= 1; col++){
+        if (!(row === 0 && col === 0)) {
+          if(cell.y + row >= 0 && cell.x + col >= 0 && cell.y + row < totalRows && cell.x + col < totalCols && table[cell.y + row][cell.x + col].withMine){
+            nearMines ++;
+          }
+        }
+      }
+    }
+
+    this.setState({ near: nearMines });
   }
 
   render() {

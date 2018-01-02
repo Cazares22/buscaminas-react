@@ -29,9 +29,9 @@ export default class Table extends Component {
     for(let mine = 0; mine < propMine; mine++){
       let cell = gameTable[Math.floor(Math.random()*propRow)][Math.floor(Math.random()*propCol)];
       if(cell.withMine){
-          mine--;
+        mine--;
       } else {
-          cell.withMine = true;
+        cell.withMine = true;
       }
     }
     return gameTable
@@ -50,7 +50,7 @@ export default class Table extends Component {
 
     const Rows = generatedTable.map((row, index) => {
       return(
-        <Row cells={row} key={index} />
+        <Row cells={row} key={index} maxRows={tableRows} maxCols={tableCols} table={generatedTable} />
       );
     });
 
